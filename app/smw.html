@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head><title>show my way</title></head>
+<body>
+    <h1 style="color:green;">  
+            Show My Way  
+    </h1>
+   
+    place:<input type="text" id="myText">
+    <button type="button" onclick="myFunction('+')">+</button>
+    <button type="button" onclick="myFunction('-')">-</button>
+    <button type="button" onclick="myFunction('c')">c</button>
+    <p id="Demo"></p>
+    
+    <form method="POST">
+    <textarea hidden id="demo" name="u"></textarea>
+    <input type="submit">
+    </form>
+    
+    <script>
+      let a="";
+      let A=[];
+    function myFunction(v) {
+       if(v=="+"){
+        var x = document.getElementById("myText").value;
+        A.push(x);
+        }
+       if(v=="-"){
+        A.pop();
+        }
+       if(v=="c"){
+        A=[];
+        }
+       var len=A.length;a="";
+       for(var i=0;i<len;i=i+1){
+         a=a+A[i]+"<br>";
+        }
+        document.getElementById("demo").innerHTML = a;
+        document.getElementById("Demo").innerHTML = a;
+    }
+    </script>
+</body>
+  
+</html>

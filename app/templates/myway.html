@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show My Way</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}"/>
+    <link rel="shortcut icon" href="\images\images.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+    <center>
+    <div class="headpadd">
+    
+        <span class="head1">S</span><span class="head2">HOW</span><span class="head3"> M</span><span class="head4">Y</span><span class="head5"> W</span><span class="head6">AY</span>
+    </div>
+    </center>
+    <nav class="box">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="\html\about.html">About</a></li>
+        </ul>
+    </nav>
+    <br><center>
+    <div class="search-container"></div>
+    <input type="search" class="search-in" placeholder="Search..." id="myText">
+<button id="butt" type="button" onclick="myFunction('+')">Add</button>
+<button id="butt" type="button" onclick="myFunction('-')">Delete</button>
+<button id="butt" type="button" onclick="myFunction('c')">clear</button>
+
+    <form method="POST">
+    <textarea hidden id="demo" name="u"></textarea>
+    <input type="submit" class="search-bt" value="Go" style="color: aliceblue;"></form>
+    </center>
+    <br>
+    <div class="loc"><img src="{{url_for('static',filename='icon.png')}}" alt="" id="icon" style="display: none;"><p id="Demo" class="para"></p></div>
+
+<script>
+  let a="";
+  let A=[];
+  let B=0;
+  let i=0;
+function myFunction(v) {
+    var searchbar=document.getElementById("MyText");
+    var searchbutt=document.getElementById("butt"); 
+   if(v=="+"){
+    B=B+1;
+    document.getElementById("icon").style.display="block";
+    var x = document.getElementById("myText").value;
+    A.push(x);
+    searchbutt.addEventListener('click',function(event){
+        event.preventDefault();
+     searchbar.value=' ';
+    });
+    }
+   if(v=="-"){
+    B=B-1;
+    A.pop();
+    searchbutt.addEventListener('click',function(event){
+        event.preventDefault();
+        searchbar.value='';
+       });
+    }
+   if(v=="c"){
+    B=0;
+    A=[];
+    searchbutt.addEventListener('click',function(event){
+        event.preventDefault();
+        searchbar.value='';
+       });
+    }
+    if(B==0)
+    {
+        document.getElementById("icon").style.display="none";
+    }
+   var len=A.length;a="";
+   for(var i=0;i<len;i=i+1){
+    
+     a=a+A[i]+"<br>";
+    }
+    document.getElementById("demo").innerHTML = a;
+    document.getElementById("Demo").innerHTML = a;
+}
+</script>
+
+</body>
+</html>
